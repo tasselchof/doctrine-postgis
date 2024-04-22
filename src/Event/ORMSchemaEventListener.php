@@ -4,11 +4,18 @@ declare(strict_types=1);
 
 namespace Jsor\Doctrine\PostGIS\Event;
 
+use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Tools\Event\GenerateSchemaTableEventArgs;
 use Jsor\Doctrine\PostGIS\Types\PostGISType;
 
-class ORMSchemaEventListener
+class ORMSchemaEventListener implements EventSubscriber
 {
+    public function getSubscribedEvents() {
+        return [
+            'postGenerateSchemaTable',
+        ];
+    }
+
     public function postGenerateSchemaTable(GenerateSchemaTableEventArgs $args): void
     {
         $table = $args->getClassTable();

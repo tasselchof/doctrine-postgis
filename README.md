@@ -75,7 +75,7 @@ Additionally, to also use the library with the Doctrine ORM, register the
 ```php
 use Jsor\Doctrine\PostGIS\Event\ORMSchemaEventListener;
 
-$entityManager->getEventManager()->addEventSubscriber(new ORMSchemaEventSubscriber());
+$entityManager->getEventManager()->addEventSubscriber(new ORMSchemaEventListener());
 ```
 
 ### Symfony
